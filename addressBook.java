@@ -1,11 +1,8 @@
 package addressBook;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class AddressBookUC2 {
-	
+public class AddressBookUC3 {
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -16,18 +13,19 @@ public class AddressBookUC2 {
 	private String email;
 	
 
-	public AddressBookUC2 (String fn, String ln, String ad, String ct, String st, String zp, String ph, String em) {
-		// TODO Auto-generated constructor stub
-	
-	firstName = fn;
-	lastName= ln;
-	address = ad;
-	city = ct;
-	state = st;
-	zipcode = zp;
-	phonenumber = ph;
-	email = em;
-}
+//	public AddressBookUC3 (String firstName, String lastName, String address, String city, String state,
+//			String zipcode, String phonenumber, String email) {
+//		// TODO Auto-generated constructor stub
+//	
+//	this.firstName = "";
+//	this.lastName = "";
+//	this.address = "" ;
+//	this.city = "";
+//	this.state = "";
+//	this.zipcode = "";
+//	this.phonenumber = "";
+//	this.email = "";
+//}
 
 
 	public String getFirstName() {
@@ -100,82 +98,82 @@ public String getCity() {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+	public AddressBookUC3 (String firstName, String lastName, String address, String city, String state,
+			String zipcode, String phonenumber, String email) {
+		// TODO Auto-generated constructor stub
+	setFirstName(firstName);
+	setLastName(lastName);
+	setAddress(address);
+	setCity(city);
+	setState(state);
+	setZipcode(zipcode);
+	setPhonenumber(phonenumber);
+	setEmail(email);
 
+	
+	
+}
+	
+		
+		public static void main(String[] args) {
+			Scanner scn = new Scanner(System.in);	
+			
+			
+			String[] AddressBookUC3 = new String[8]; 
+			int i;
+			String firstName, lastName, address, city,  state,
+			 zipcode,  phonenumber,  email; 
+			AddressBookUC3 a = new AddressBookUC3 ("pappu", "kumar", "Behat", "Jhanjharpur", "Bihar", "847403", "8871312779","pappu@gmail.com");
+			
+			firstName=a.getFirstName();
+			lastName=a.getLastName();
+			address=a.getAddress();
+			city=a.getCity();
+			state=a.getState();
+			zipcode=a.getZipcode();
+			phonenumber=a.getPhonenumber();
+			email=a.getEmail();
+					
+			AddressBookUC3[0] = firstName;
+			AddressBookUC3[1] = lastName;
+			AddressBookUC3[2] = address;
+			AddressBookUC3[3] = city;
+			AddressBookUC3[4] = state;
+			AddressBookUC3[5] = zipcode;
+			AddressBookUC3[6] = phonenumber;
+			AddressBookUC3[7] = email;
 
-@SuppressWarnings("unchecked")
-public static void main(String[] args) {
-	
-	ArrayList<AddressBookUC2> addressBook = new ArrayList<AddressBookUC2>();
-	
-	Scanner console = new Scanner(System.in);
-	
-	
-	while(true)
-	{
-
-		System.out.println("1)Add a new contact");
-//		System.out.println("2)Display all contacts");
-//		System.out.println("3)Delete a contact");
-		System.out.println("-1) Quit");
-		System.out.print("Enter Your choice: ");
-		
-		Scanner scn = new Scanner(System.in);
-		
-		int choice = scn.nextInt();
-		scn.nextLine();
-		switch(choice)
-		
-		{
-		case 1:
-		
+			System.out.println("Person data in array:");
 			
-			System.out.println("Enter First Name");
-			String firstname = scn.next();
+			for ( i = 0; i < AddressBookUC3.length; i++) 
+			{
+				System.out.println(AddressBookUC3[i]);
+			}
 			
-			System.out.println("Enter Last Name");
-			String lastname = scn.next();
+			System.out.println("Enter location you need to update:");
+			int loc = scn.nextInt();
+			System.out.println("Select Delete Details:");
+			String isEdit = scn.next();
+			System.out.println("Enter your name for verification:");
+			String name = scn.next();
 			
-			System.out.println("Enter Address");
-			String address = scn.next();
+			for( i = 0; i< AddressBookUC3.length; i++ )
+			{
+				if ( name.equals(firstName)  && loc == i )
+				{
+					AddressBookUC3[i]=isEdit;
+				}
+			}
 			
-			System.out.println("Enter city");
-			String city = scn.next();
+			System.out.println("Array after modification:");
+			for( i = 0; i <AddressBookUC3.length; i++ )
+			{
+				System.out.println(AddressBookUC3[i]);
 			
-			System.out.println("Enter State");
-			String state = scn.next();
-			
-			System.out.println("Enter zipcode");
-			String zipcode = scn.next();
-			
-			System.out.println("Enter phone Number");
-		    String phonenumber = scn.next();
-			
-			System.out.println("Enter Email Id");
-			String email = scn.next();
-			
-			
-			System.out.println("First Name:"  +firstname);
-			System.out.println("Last Name:"  +lastname);
-			System.out.println("Address:"  +address);
-			
-			System.out.println("City Name:"  +city);
-			System.out.println("Statet Name:"  +state);
-			System.out.println("ZipCode:"  +zipcode);
-			System.out.println("Phone Number:"  +phonenumber);
-			System.out.println("email id" +email);
-			
-//			addressBook.add(new AddressBookUC4(firstname, lastname, address, city,
-//					state, zipcode, phonenumber, email));
-		
-	
-		}
+       }
 	}
+		
 }
-}
-
-
-
-
-
-
 
